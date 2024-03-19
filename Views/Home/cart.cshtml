@@ -1,0 +1,75 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+
+
+@{
+   
+}
+
+<div class="container">
+<table class="table table-bordered table-responsive" >
+    <tr>
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Amount</th>
+    </tr>
+    @foreach (Model_AddCartList item in AddList.Model_Cart)
+    {
+        int getTotal = Int32.Parse(item.ItemQty.ToString()) * Int32.Parse(item.ItemPrice.ToString());
+        <tr>
+
+            <td>@item.ItemID.ToString()</td>
+            <td>@item.ItemName.ToString()</td>
+            <td>$@item.ItemPrice.ToString()</td>
+                <td><input type="number" class="form-control" min="1" id="quantity_@item.ItemID.ToString()" value="@item.ItemQty.ToString()" /></td>
+                <td id="toral_@item.ItemID.ToString()">$@getTotal.ToString()</td>
+                <td class="text-center"><a asp-controller="Home" asp-action="delete_cart" asp-route-id="@item.ItemID.ToString()" class="btn btn-danger">Delete</a></td>
+                <script>
+                   $(document).ready(function () {
+                     
+                       $("#quantity_@item.ItemID.ToString()").bind("keyup mouseup", function () {
+                           var itemId = "@item.ItemID.ToString()";
+                            var quan = $("#quantity_@item.ItemID.ToString()").val();
+                            var name = "@item.ItemName.ToString()";
+                            var amount = "@item.ItemPrice.ToString()";
+                           var total = quan * amount;
+                            $("#toral_@item.ItemID.ToString()").text("$" + total); 
+                          // alert("quantity is -->" + quan + "amount is --->" + amount + "total amount is --->" + total );
+                            var Udata = { "ID": itemId, "quantity": quan, "total": amount, "name": name };
+                           $.ajax({
+                               type : "post",
+                                url: '@Url.Action("update_cart" , "Home")',
+                               data: Udata,
+                               success: function (data) 
+                               {
+                                  
+                               },
+                               error: function () 
+                               {
+                                   alert("error accoured during processing");
+                               }
+                           });
+                          
+                        });
+                        function total()
+                        {
+                            var quan = $("#quantity_@item.ItemID.ToString()").val();
+                            var amount = "@item.ItemPrice.ToString()";
+                        }
+                        
+                   });
+                        
+                   
+                </script>
+
+        </tr>
+  
+    }
+   
+        
+</table>
+</div>
