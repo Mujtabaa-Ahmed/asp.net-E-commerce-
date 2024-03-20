@@ -5,7 +5,7 @@
 
 
 @{
-   
+    int Total = 0; 
 }
 
 <div class="container">
@@ -20,13 +20,14 @@
     @foreach (Model_AddCartList item in AddList.Model_Cart)
     {
         int getTotal = Int32.Parse(item.ItemQty.ToString()) * Int32.Parse(item.ItemPrice.ToString());
-        <tr>
+            Total = Total + getTotal;
+            <tr>
 
             <td>@item.ItemID.ToString()</td>
             <td>@item.ItemName.ToString()</td>
-            <td>$@item.ItemPrice.ToString()</td>
+                <td id="amo_@item.ItemID.ToString()">$@item.ItemPrice.ToString()</td>
                 <td><input type="number" class="form-control" min="1" id="quantity_@item.ItemID.ToString()" value="@item.ItemQty.ToString()" /></td>
-                <td id="toral_@item.ItemID.ToString()">$@getTotal.ToString()</td>
+                <td id="toral_@item.ItemID.ToString()">$@getTotal</td>
                 <td class="text-center"><a asp-controller="Home" asp-action="delete_cart" asp-route-id="@item.ItemID.ToString()" class="btn btn-danger">Delete</a></td>
                 <script>
                    $(document).ready(function () {
@@ -37,7 +38,14 @@
                             var name = "@item.ItemName.ToString()";
                             var amount = "@item.ItemPrice.ToString()";
                            var total = quan * amount;
-                            $("#toral_@item.ItemID.ToString()").text("$" + total); 
+                       
+                            $("#toral_@item.ItemID.ToString()").text("$" + total);
+                           var titotal = $("#toral_@item.ItemID.ToString()").text();
+                           var dototal = titotal + amount;
+
+
+                            $("#Getdata").text(@Total + amount);
+                       
                           // alert("quantity is -->" + quan + "amount is --->" + amount + "total amount is --->" + total );
                             var Udata = { "ID": itemId, "quantity": quan, "total": amount, "name": name };
                            $.ajax({
@@ -55,12 +63,8 @@
                            });
                           
                         });
-                        function total()
-                        {
-                            var quan = $("#quantity_@item.ItemID.ToString()").val();
-                            var amount = "@item.ItemPrice.ToString()";
-                        }
-                        
+                      
+
                    });
                         
                    
@@ -69,7 +73,12 @@
         </tr>
   
     }
-   
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <th id="Getdata">$@Total</th>
+        <td class="text-center"><a asp-controller="Home" asp-action="delete_cart" asp-route-id="" class="btn btn-danger">Delete</a></td>
         
 </table>
 </div>

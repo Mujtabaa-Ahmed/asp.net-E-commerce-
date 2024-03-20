@@ -136,3 +136,4 @@ D:\Ahmed\C# assigment\Online_store\OnlineStore\obj\Debug\net6.0\refint\OnlineSto
 D:\Ahmed\C# assigment\Online_store\OnlineStore\obj\Debug\net6.0\OnlineStore.pdb
 D:\Ahmed\C# assigment\Online_store\OnlineStore\obj\Debug\net6.0\OnlineStore.genruntimeconfig.cache
 D:\Ahmed\C# assigment\Online_store\OnlineStore\obj\Debug\net6.0\ref\OnlineStore.dll
+D:\Ahmed\C# assigment\Online_store\OnlineStore\obj\Debug\net6.0\OnlineStore.sourcelink.json
