@@ -51,7 +51,7 @@
                                data: Udata,
                                success: function (data) 
                                {
-                                  
+                                   location.reload();
                                },
                                error: function () 
                                {
@@ -70,7 +70,7 @@
         </tr>
   
     }
-    <script>
+   @*  <script>
         $(document).ready(function () {
             $(".yo").bind("keyup mouseup", function () {
                
@@ -79,13 +79,24 @@
                      $("#Getdata").text(tito + ti);
             });
         })
-    </script>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <th id="Getdata">$@Total</th>
-        <td class="text-center"><a asp-controller="Home" asp-action="delete_cart" asp-route-id="" class="btn btn-danger">Delete</a></td>
-        
+    </script> *@
+        @if (AddList.Model_Cart.Count > 0)
+        {
+            if (ClassSessionUser.UserId != "")
+            {
+
+                <td colspan="4"></td>
+                <th id="Getdata">$@Total</th>
+                <td class="text-center"><a asp-controller="Home" asp-action="checkout" asp-route-id="" class="btn btn-success btn-sm">CheckOut</a></td>
+            }
+
+            else
+            {
+                <td colspan="4"></td>
+                <th id="Getdata">$@Total</th>
+                <td class="text-center"><a data-toggle="modal" data-target="#myModal1" class="btn btn-success btn-sm">CheckOut</a></td>
+            }
+        }
+       
 </table>
 </div>

@@ -227,6 +227,10 @@ namespace OnlineStore.Controllers
                   return RedirectToAction("cart", "Home", classCategeoryModels);
 
         }
+		public IActionResult checkout() 
+		{
+			return Content("Hi");
+		}
         public IActionResult Index()
 		{
 			return View(classCategeoryModels);

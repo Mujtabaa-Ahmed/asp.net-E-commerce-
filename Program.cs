@@ -14,7 +14,7 @@ namespace OnlineStore
 
 			builder.Services.AddDbContext<Db_Class>(options => {
 				//options.UseSqlServer(builder.Configuration.GetConnectionString("MyDBConnection") ?? throw new InvalidOperationException("Connection string 'RazorPagesMovieContext' not found.")));
-				options.UseSqlServer("Server=DESKTOP-713LM2T;Database=db_onlinemart;MultipleActiveResultSets=true;Trusted_Connection=True;");
+				options.UseSqlServer("Server=DESKTOP-713LM2T;Database=db_onlinemart;MultipleActiveResultSets=true;Trusted_Connection=True;TrustServerCertificate=True");
 			});
 			builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
