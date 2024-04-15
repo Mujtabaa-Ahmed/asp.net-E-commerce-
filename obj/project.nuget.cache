@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Lx2osS+2yIDmmE+s1GOkfQRWIKv+Nc6g2QBaIJXYUCGU233sNtSY4zZGB2283qfGDBb4G9/kC+EO8oVM0lXO3g==",
+  "dgSpecHash": "XdzZ9+M0d5OAPvY9aPgA7YTQ5XFlAmHsR4tbnozUeuIHTdpCvZC1TpxQQBhERENoPCdoWvqBcpSQqrf6ydMSZg==",
   "success": true,
   "projectFilePath": "D:\\Ahmed\\C# assigment\\Online_store\\OnlineStore\\OnlineStore.csproj",
   "expectedPackageFiles": [
@@ -47,7 +47,11 @@
     "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\system.security.permissions\\4.7.0\\system.security.permissions.4.7.0.nupkg.sha512",
     "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\system.security.principal.windows\\4.7.0\\system.security.principal.windows.4.7.0.nupkg.sha512",
     "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
-    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
+    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512",
+    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.28\\microsoft.windowsdesktop.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.28\\microsoft.netcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.28\\microsoft.aspnetcore.app.ref.6.0.28.nupkg.sha512",
+    "C:\\Users\\Hamza Ahmed\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.28\\microsoft.netcore.app.host.win-x64.6.0.28.nupkg.sha512"
   ],
   "logs": []
 }

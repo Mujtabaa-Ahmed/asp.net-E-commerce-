@@ -15,5 +15,7 @@ namespace OnlineStore.DB
 		public DbSet<Class_subcategories> tbl_sub_cat { get; set; }
 
 		public DbSet<Class_Products> tbl_products { get; set; }
-	}
+		public DbSet<Class_Orders> tbl_Orders { get; set; }
+		public DbSet<Class_Orders_Details> tbl_Orders_Detail { get; set; }
+    }
 }

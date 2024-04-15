@@ -229,8 +229,53 @@ namespace OnlineStore.Controllers
         }
 		public IActionResult checkout() 
 		{
-			return Content("Hi");
-		}
+			if (ClassSessionUser.UserFullName != "")
+			{
+				string Order_date = DateTime.Now.ToString("dd-MMM-yyyy");
+				string Order_invouce = DateTime.Now.ToString("yyyMMddHHmmss");
+				string User_id = ClassSessionUser.UserId;
+				int amount = 0;
+
+				foreach (Model_AddCartList value in AddList.Model_Cart) 
+				{
+					amount = amount + Int32.Parse(value.ItemQty.ToString()) * Int32.Parse(value.ItemPrice.ToString());
+					
+					Class_Orders_Details deatil = new Class_Orders_Details() 
+					{
+                        Order_userId = User_id,
+                        Order_Date = Order_date,
+						Order_InvoiceNumber = Order_invouce,
+						Orders_Details_product = value.ItemName,
+                        Orders_details_Product_price = value.ItemPrice,
+						Orders_details_Product_Qty = value.ItemQty
+                    };
+					_DBContext.tbl_Orders_Detail.Add(deatil);
+					_DBContext.SaveChanges();
+					
+				}
+
+				Class_Orders order = new Class_Orders()
+				{
+					Order_userId = User_id,
+					Order_Date = Order_date,
+					Order_InvoiceNumber = Order_invouce,
+					Order_toatlAmount = amount.ToString()
+                };
+				_DBContext.tbl_Orders.Add(order);
+				_DBContext.SaveChanges();
+
+               
+                     AddList.Model_Cart.Clear();
+                    
+            
+                return RedirectToAction("cart", "Home", classCategeoryModels);
+            }
+            else
+            {
+				return Content("error");
+            }
+
+        }
         public IActionResult Index()
 		{
 			return View(classCategeoryModels);
